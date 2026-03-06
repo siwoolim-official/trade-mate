@@ -1,0 +1,17 @@
+services:
+  trade-mate-db:                        # 서비스명
+    image: postgres:16-alpine           # 이미지명
+    container_name: trade-mate-db       # 자동복구정책
+    restart: always
+    environment:                        # 초기설정
+      POSTGRES_USER: postgres           # 관리자 아이디
+      POSTGRES_PASSWORD: ${DB_PASSWORD} # 관리자 비밀번호 .env에서 읽어옴
+      POSTGRES_DB: trade_mate           # DB 이름
+      TZ: Asia/Seoul                    # TIME ZONE
+    ports:                              # Host port : Container port
+      - "5432:5432"
+    volumes:                            # docker volum 사용
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
