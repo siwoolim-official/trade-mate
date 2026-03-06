@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: trade-mate-api
+
+  # 데이터베이스 연결 정보
+  datasource:
+    url: jdbc:postgresql://localhost:5432/trade_mate
+    username: trade_app
+    password: 1q2w3e4r!
+    driver-class-name: org.postgresql.Driver
+
+  # JPA 설정
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
+  # 금융 시스템으로 인한 미국 시간 기준
+  jackson:
+    time-zone: UTC

@@ -12,6 +12,7 @@ services:
       - "5432:5432"
     volumes:                            # docker volum 사용
       - pgdata:/var/lib/postgresql/data
-
+      - trade_tbs:/var/lib/postgresql/trade_tbs # 테이블스페이스용
 volumes:
   pgdata:
+  trade_tbs:
