@@ -1,5 +1,6 @@
 package com.trademate.api.domain.user.entity;
 
+import com.trademate.api.common.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -20,7 +21,7 @@ import java.time.OffsetDateTime;
 @EntityListeners(AuditingEntityListener.class) // 생성 수정 시간 자동 기록
 @SQLDelete(sql = "UPDATE users SET is_active = false WHERE id = ?") // 삭제 SQL
 @Where(clause = "is_active = true") // 조회 조건
-public class User {
+public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 자동 증가
     private Long id;
